@@ -1,0 +1,28 @@
+.chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;    
+    height: 18px;
+    border-radius: 16px;
+    border: 1px solid currentColor;
+    padding: 0 6px;            
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    line-height: 1;
+    opacity: 1;
+    gap: 4px;                  
+  }
+
+  .chip.STOCK {
+    width: 42px;      
+    color: #141414;
+  }
+
+  .chip.ETF {
+    width: 32px;  
+    color: #4148FB;
+  }
+  
