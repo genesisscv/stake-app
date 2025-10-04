@@ -1,0 +1,32 @@
+.bottom-tabs {
+  --background: #fff;
+  --color: #9aa0a6;           /* inactive */
+  --color-selected: #111;     /* active */
+  --border: 0;               
+  padding-bottom: max(env(safe-area-inset-bottom), 6px);
+
+  ion-tab-button {
+    flex-direction: column;
+    gap: 2px;
+    min-height: 60px;
+  }
+
+  .icon {
+    width: 22px; height: 22px;
+    display: block;
+    filter: grayscale(1) brightness(0.75);  /* inactive tint */
+    transition: filter .15s ease;
+  }
+
+  ion-label {
+    font-size: 12px;
+    transition: color .15s ease, font-weight .15s ease;
+  }
+
+  .active {
+    color: var(--color-selected);
+
+    .icon { filter: none; }                  
+    ion-label { font-weight: 600; }          
+  }
+}

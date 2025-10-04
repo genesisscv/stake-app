@@ -1,0 +1,23 @@
+ion-chip {
+    height: 20px;
+    --padding-start: 8px;
+    --padding-end: 8px;
+  }
+  
+  .chip-label {
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    font-weight: 600;
+    font-size: 11px;
+  }
+
+//   .chip.STOCK {
+//     width: 42px;      
+//     color: #141414;
+//   }
+
+//   .chip.ETF {
+//     width: 32px;  
+//     color: #4148FB;
+//   }
+  

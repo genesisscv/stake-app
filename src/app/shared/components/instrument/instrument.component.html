@@ -1,0 +1,18 @@
+<ion-item lines="none" class="instrument-row">
+  <ion-label>
+    <div class="name">{{ name }}</div>
+    <div class="description">{{ sharesText }}</div>
+  </ion-label>
+
+  <div slot="end" class="right">
+    <!-- price already formatted -->
+    <div class="price">{{ priceDisplay }}</div>
+
+    <!-- performance chip (green only for now) -->
+    <div
+      class="perf-box"
+      [class.perf--green]="performanceDisplay.variant === 'green'">
+      {{ performanceDisplay.text }}
+    </div>
+  </div>
+</ion-item>

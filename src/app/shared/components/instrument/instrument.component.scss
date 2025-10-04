@@ -1,0 +1,46 @@
+
+.instrument-row {
+  --padding-start: 12px;
+  --inner-padding-end: 12px;
+  border-radius: 12px;
+  background: #f3f4f6;
+  margin-top: 4px;
+}
+
+
+.description {
+  color: #959595;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: right;
+}
+
+.price {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Performance badge, color based via classes */
+.perf-box {
+  display: inline-block;
+  min-width: 48px;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 4px; 
+  padding-right: 9px;
+  padding-left: 9px;
+  border: 1px;
+  gap: 4px;
+  line-height: 1;
+  color: #fff;
+  opacity: 1;
+}
+
+.perf--green {
+  background: #22b692;
+}

@@ -1,0 +1,17 @@
+<ion-tab-bar slot="bottom" class="bottom-tabs">
+  <ion-tab-button
+    (click)="setActive('invest')"
+    [class.active]="active === 'invest'"
+  >
+    <img class="icon" src="assets/icons/invest.svg" alt="" />
+    <ion-label>Invest</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button
+    (click)="setActive('discover')"
+    [class.active]="active === 'discover'"
+  >
+    <img class="icon" src="assets/icons/discover.svg" alt="" />
+    <ion-label>Discover</ion-label>
+  </ion-tab-button>
+</ion-tab-bar>
