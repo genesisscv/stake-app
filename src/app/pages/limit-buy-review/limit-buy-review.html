@@ -1,0 +1,41 @@
+<ion-content class="ion-padding">
+    <h1>Dashboard</h1>
+    <holdings></holdings>
+    <!-- <h3>Total equity $8,036</h3>
+
+    <h2>Holdings</h2>
+    <instrument
+      name="TIK"
+      description="3.0282 shares"
+      [price]="105.44"
+      [performance]="22.9">
+    </instrument >
+      
+    <instrument
+    name="TIK"
+    description="ssssss"
+    [price]="105.44">
+    </instrument> -->
+    
+    <h2>Trending stocks</h2>
+    <app-card
+      [padded]="true"
+      [chipType]="'stock'"
+      [title]="'$131.04'"
+      [subtitle]="'FIG • Figma Inc'"
+      [footer]="'Preview only'"
+    >
+      <p>Card body content.</p>
+    </app-card>
+  
+    <div style="height:12px"></div>
+  
+    <app-card
+      [padded]="true"
+      [chipType]="'etf'"
+      [title]="'$470.12'"
+      [subtitle]="'VOO • Vanguard S&P 500 ETF'"
+    >
+      <p>Card Body content.</p>
+    </app-card>
+  </ion-content>

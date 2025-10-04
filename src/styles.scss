@@ -1,1 +1,11 @@
-/* Add application styles & imports to this file! */
+/* Global Typography Settings */
+body {
+    font-family: 'Universal Sans', sans-serif;
+    font-weight: 500;         
+    font-style: normal;     
+    font-size: 13px;
+    line-height: 1.3;       
+    letter-spacing: 0.25px;
+    color: #000;     /* optional default text color */
+  }
+  

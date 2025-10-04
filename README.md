@@ -1,3 +1,8 @@
-# stake-app
+Trade offs for time:
 
-[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/genesisscv/stake-app)
+No enums for types
+No shared modules 
+Wanted to add something to pull currency type instead of just hardcoding $ 
+
+Future design updates:
+- added placeholder for future variants in the instrument component 
