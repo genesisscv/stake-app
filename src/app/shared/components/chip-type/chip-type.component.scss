@@ -2,12 +2,34 @@ ion-chip {
   height: 20px;
   --padding-start: 8px;
   --padding-end: 8px;
+  gap: 4px;
+  border-radius: 16px;
+  border: 1px solid;
+  background: transparent;
+  opacity: 1;
+
+  /* text style */
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  color: #141414;
+
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+}
+
+ion-chip::part(native) {
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 .chip-label {
   font-weight: 600;
   font-size: 11px;
 }
+
 
 .ChipType.STOCK {
   width: 42px;

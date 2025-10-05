@@ -2,23 +2,25 @@
   <div class="header">
     <div class="label">Total equity</div>
     <div class="value">
-      {{ (totalEquity$ | async) | currency:'USD':'symbol':'1.0-0' }}
+      {{ totalEquity$ | async | currency : "USD" : "symbol" : "1.0-0" }}
     </div>
   </div>
 
-  <h3>Holdings</h3>
+  <h3 class="section-title">Holdings</h3>
 
   <div class="table-header">
-    <span>Stock</span><span class="price">Price</span><span class="change">Change</span>
+    <span>Stock</span><span class="price">Price</span
+    ><span class="change">Change</span>
   </div>
 
-  <ng-container *ngFor="let item of (instruments$ | async)">
+  <ng-container *ngFor="let item of instruments$ | async">
     <!-- keep Instrument logic minimal, only render what we pass -->
     <instrument
-      [name]="item.name"
+      [symbol]="item.symbol"
       [shares]="item.shares"
       [price]="item.price"
-      [performance]="item.performance">
+      [performance]="item.performance"
+    >
     </instrument>
   </ng-container>
 </section>

@@ -1,6 +1,6 @@
 <ion-item lines="none" class="instrument-row">
   <ion-label>
-    <div class="name">{{ name }}</div>
+    <div class="symbol">{{ symbol }}</div>
     <div class="description">{{ sharesText }}</div>
   </ion-label>
 
@@ -11,7 +11,9 @@
     <!-- performance chip (green only for now) -->
     <div
       class="perf-box"
-      [class.perf--green]="performanceDisplay.variant === 'green'">
+      [class.perf--green]="performanceDisplay.variant === 'green'"
+      [class.perf--red]="performanceDisplay.variant === 'red'"
+    >
       {{ performanceDisplay.text }}
     </div>
   </div>

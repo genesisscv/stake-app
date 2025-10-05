@@ -1,17 +1,19 @@
 <ion-content class="ion-padding">
-  <h1>Dashboard</h1>
-  <holdings></holdings>
+  <h1 class="page-title">Dashboard</h1>
+  <section class="holdings">
+    <holdings></holdings>
+  </section>
 
-  <h2>Trending stocks</h2>
+  <h3 class="section-title">Trending stocks</h3>
   <div class="cards-scroll">
-    <card *ngFor="let s of trending" 
-      [imgSrc]="s.logo" 
-      [chipType]="s.type" 
-      [title]="s.ticker" 
+    <card
+      *ngFor="let s of trending"
+      [imgSrc]="s.logo"
+      [chipType]="s.type"
+      [title]="s.ticker"
       [subtitle]="s.name"
-      [price]="s.price">
-
+      [price]="s.price"
+    >
     </card>
   </div>
-
 </ion-content>

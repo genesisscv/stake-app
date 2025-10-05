@@ -4,7 +4,7 @@ import { HoldingsApi } from '../../holdings.api';
 import { PricingApi } from '../../pricing.api';
 import { DetailsApi } from '../../details.api';
 
-export interface InstrumentVm {
+export interface Instrument {
     symbol: string;
     name: string;
     logo: string;
@@ -33,7 +33,7 @@ export class PortfolioData {
             const priceBy = new Map(ps.map(p => [p.symbol, p]));
             const detailBy = new Map(ds.map(d => [d.symbol, d]));
 
-            return hs.map<InstrumentVm>(h => {
+            return hs.map<Instrument>(h => {
                 const p = priceBy.get(h.symbol);
                 const d = detailBy.get(h.symbol);
 

@@ -12,7 +12,7 @@ import { IonicModule } from '@ionic/angular';
 export class InstrumentComponent {
 
   // Fed from portfolio data
-  @Input() name!: string;      // e.g. "AAPL"
+  @Input() symbol!: string;      // e.g. "AAPL"
   @Input() shares!: number;      // e.g. 3.0282
   @Input() price!: number;       // e.g. 105.44
   @Input() performance!: number;
@@ -30,20 +30,27 @@ export class InstrumentComponent {
       maximumFractionDigits: 2,
     })}`;
   }
-  // Format performance for display (currently supports 'green', easily extendable)
+
+  // Format performance for display (+green / −red)
   get performanceDisplay() {
-    // nothing to show
-    if (this.performance == null) return { text: '', variant: '' as const };
+    if (this.performance == null || isNaN(this.performance)) {
+      return { text: '', variant: '' as const };
+    }
 
-    const value = Math.abs(this.performance).toFixed(2);
-    const sign = this.performance > 0 ? '+' : '';
+    const val = Number(this.performance);
+    const isPositive = val > 0;
+    const isNegative = val < 0;
 
-    // show +2.35% or -1.20%
+    const sign = isPositive ? '+' : isNegative ? '−' : '';
+    const text = `${sign}${Math.abs(val).toFixed(2)}%`;
+
     return {
-      text: `${sign}${value}%`,
-      variant: this.performance > 0 ? 'green' as const : '' as const
+      text,
+      variant: isPositive
+        ? ('green' as const)
+        : isNegative
+          ? ('red' as const)
+          : ('' as const)
     };
   }
-
-
 }

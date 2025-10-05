@@ -1,25 +1,42 @@
+:host {
+  --col-gap: 25px;
+  --col-stock: 20px;
+  --col-price: 80px;
+  --col-change: 55px;
+}
+
 .holdings {
   .header {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 1rem;
 
     .label {
-      font-size: 0.85rem;
-      opacity: 0.7;
+      font-size: 12px;
+      font-weight: 600;
+
     }
+
     .value {
-      font-size: 1.6rem;
+      font-size: 28px;
       font-weight: 600;
     }
   }
 
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 24px 0 12px;
+  }
+
   .table-header {
     display: grid;
-    grid-template-columns: 1fr auto auto;
-    font-size: 0.8rem;
-    opacity: 0.6;
-    margin-bottom: 0.5rem;
+    grid-template-columns: 1fr var(--col-price) var(--col-change);
+    column-gap: var(--col-gap);
+    align-items: center;
+    font-size: 12px;
+    opacity: .6;
+    margin-bottom: 6px;
   }
 }

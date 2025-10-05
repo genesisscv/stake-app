@@ -2,21 +2,18 @@
   {
     "symbol": "AAPL",
     "shares": 3.0282,
-    "avgPrice": 85.75,
     "accountId": "acc-001",
     "currency": "USD"
   },
   {
     "symbol": "TSLA",
     "shares": 3.0282,
-    "avgPrice": 85.75,
     "accountId": "acc-001",
     "currency": "USD"
   },
   {
-    "symbol": "TIK",
+    "symbol": "AMZN",
     "shares": 3.0282,
-    "avgPrice": 85.75,
     "accountId": "acc-001",
     "currency": "USD"
   }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, of, shareReplay, tap } from 'rxjs';
+import { catchError, of, shareReplay } from 'rxjs';
 
 export interface HoldingDto {
     symbol: string;
