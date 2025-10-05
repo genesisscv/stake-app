@@ -21,7 +21,7 @@ export class LimitBuyReview {
   ChipType = ChipType;
 
   // Mock trending data, to be replaced in the future
-  trending = Array.from({ length: 6 }, () => ({
+  trending = Array.from({ length: 20 }, () => ({
     ticker: 'FIG',
     name: 'Figma Inc',
     price: 131.04,
