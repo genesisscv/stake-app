@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Type } from './type.enum';
 
+type Type = 'stock' | 'etf';
 
 @Component({
   selector: 'app-type',
@@ -10,9 +10,23 @@ import { Type } from './type.enum';
   templateUrl: './type.component.html',
   styleUrls: ['./type.component.scss'],
 
-  // only updates if input/event changes to optimise performance
+  // Only update if input/event changes to optimise performance
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class TypeComponent {
   @Input({ required: true }) type!: Type;
+
+  // Format chip based on type
+  colorFor(t: Type): string {
+    switch (t) {
+      case 'stock': return 'medium';   // grey
+      case 'etf':   return 'primary';  // blue
+    }
+  }
+
+  // Format label based on type 
+  label(t: Type): string {
+    return t === 'stock' ? 'Stock' : 'ETF';
+  }
 }

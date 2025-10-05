@@ -1,1 +1,4 @@
-<span class="chip" [ngClass]="type">{{ type }}</span>
+<ion-chip size="small" [color]="colorFor(type)">
+    <ion-label class="chip-label">{{ label(type) }}</ion-label>
+  </ion-chip>
+  
