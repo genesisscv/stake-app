@@ -26,6 +26,6 @@
 ## Time Trade-offs:
 - A shared module was not created to save time since standalone components already provide modular separation.
 
-- The Trending Stocks section currently uses static mock data instead of a live API.
+- The Trending Stocks section currently uses static mock data instead of an API.
 
 - Given more time, I would have liked to create a more accurate design implementation and complete the planned animations and routing setup.  
