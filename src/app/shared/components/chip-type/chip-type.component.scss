@@ -5,19 +5,17 @@ ion-chip {
   }
   
   .chip-label {
-    text-transform: uppercase;
-    letter-spacing: .02em;
     font-weight: 600;
     font-size: 11px;
   }
 
-//   .chip.STOCK {
-//     width: 42px;      
-//     color: #141414;
-//   }
+  .ChipType.STOCK {
+    width: 42px;      
+    color: #141414;
+  }
 
-//   .chip.ETF {
-//     width: 32px;  
-//     color: #4148FB;
-//   }
+  .ChipType.ETF {
+    width: 32px;  
+    color: #4148FB;
+  }
   

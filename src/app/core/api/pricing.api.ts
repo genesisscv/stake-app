@@ -20,7 +20,6 @@ export class PricingApi {
 
         // Cache the request and catch errors
         .pipe(
-            tap(d => console.log('pricing.json', d)),
             catchError(err => { console.error('pricing api error', err); return of([] as PricingDto[]); }),
             shareReplay(1)
         );

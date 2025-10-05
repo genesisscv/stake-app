@@ -1,8 +1,11 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
-type ChipType = 'stock' | 'etf';
+export enum ChipType {
+  STOCK = 'Stock',
+  ETF = 'ETF'
+}
 
 @Component({
   selector: 'chip-type',
@@ -18,13 +21,9 @@ export class ChipTypeComponent {
   // Format chip based on type
   colorFor(t: ChipType): string {
     switch (t) {
-      case 'stock': return 'medium';   // grey
-      case 'etf':   return 'primary';  // blue
+      case ChipType.STOCK: return 'medium';   // grey
+      case ChipType. ETF: return 'primary';  // blue
     }
   }
 
-  // Format label based on type 
-  label(t: ChipType): string {
-    return t === 'stock' ? 'Stock' : 'ETF';
-  }
 }

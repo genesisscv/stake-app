@@ -18,7 +18,6 @@ export class HoldingsApi {
 
         // Cache the request and catch errors
         .pipe(
-            tap(d => console.log('holdings.json', d)),
             catchError(err => { console.error('holdings api error', err); return of([] as HoldingDto[]); }),
             shareReplay(1)
         );

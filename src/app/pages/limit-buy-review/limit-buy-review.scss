@@ -1,0 +1,22 @@
+.cards-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 8px 4px 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* smooth mobile scrolling */
+
+    /* keep scroll working, but hide the scrollbar track visually */
+    scrollbar-width: none;
+}
+
+.cards-scroll::-webkit-scrollbar {
+    height: 0;
+    background: transparent;
+}
+
+.cards-scroll card,
+.cards-scroll app-card {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+}
