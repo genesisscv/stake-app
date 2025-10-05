@@ -16,47 +16,62 @@ export interface Instrument {
 @Injectable({ providedIn: 'root' })
 export class PortfolioData {
     constructor(
-        private holdings: HoldingsApi,
-        private pricing: PricingApi,
-        private details: DetailsApi
+        private holdingsApi: HoldingsApi,
+        private pricingApi: PricingApi,
+        private detailsApi: DetailsApi
     ) { }
 
-    // This combines all sources into a single stream our UI can use.
-    // Keeps the logic in one place instead of spreading it across components.
+    /**
+     * Combines holdings, pricing, and details into one stream
+     * Provides a list of instruments ready for UI consumption
+     */
     readonly details$ = combineLatest([
-        this.holdings.holdings$,
-        this.pricing.prices$,
-        this.details.details$
+        this.holdingsApi.holdings$,
+        this.pricingApi.prices$,
+        this.detailsApi.details$
     ]).pipe(
-        map(([hs, ps, ds]) => {
-            // Quick lookup maps so we can join fast by symbol
-            const priceBy = new Map(ps.map(p => [p.symbol, p]));
-            const detailBy = new Map(ds.map(d => [d.symbol, d]));
+        map(([holdings, prices, details]) => {
+            // Create quick lookup maps for prices and details by symbol
+            // This allows access when joining data across sources
+            const priceMap = new Map(prices.map(p => [p.symbol, p]));
+            const detailMap = new Map(details.map(d => [d.symbol, d]));
 
-            return hs.map<Instrument>(h => {
-                const p = priceBy.get(h.symbol);
-                const d = detailBy.get(h.symbol);
+            // Merge holdings with price and detail data into a unified Instrument list
+            return holdings.map<Instrument>(h => {
+                // Look up matching price and detail records for this holding
+                const price = priceMap.get(h.symbol);
+                const detail = detailMap.get(h.symbol);
 
-                const lastPrice = p?.close ?? h.avgPrice;
-                const dayPct = p ? ((p.close - p.open) / p.open) * 100 : 0;
+                // Use the latest closing price if available, otherwise fallback to the average purchase price
+                const lastPrice = price?.close ?? h.avgPrice;
 
+                // Calculate daily percentage change if price data is present
+                const dayChangePct = price
+                    ? ((price.close - price.open) / price.open) * 100
+                    : 0;
+
+                // Return an Instrument object used by the UI
                 return {
                     symbol: h.symbol,
-                    name: d?.fullName ?? h.symbol,
-                    logo: d?.logo ?? '',
+                    name: detail?.fullName ?? h.symbol,
+                    logo: detail?.logo ?? '',
                     shares: h.shares,
                     price: lastPrice,
-                    performance: Number(dayPct.toFixed(2))
+                    performance: Number(dayChangePct.toFixed(2))  // format to two decimals
                 };
             });
         }),
-        // Cache result so multiple components can reuse it
+        // cache result so multiple components can reuse it
         shareReplay(1)
     );
 
-    // Calculates total portfolio value based on current prices
+    /**
+     * Calculates the total portfolio value based on current prices
+     */
     readonly totalEquity$ = this.details$.pipe(
-        map(rows => rows.reduce((sum, r) => sum + r.price * r.shares, 0)),
+        map(instruments =>
+            instruments.reduce((sum, i) => sum + i.price * i.shares, 0)
+        ),
         shareReplay(1)
     );
 }
